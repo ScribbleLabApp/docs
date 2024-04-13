@@ -1242,3 +1242,271 @@ UIView.animate(
     // ...
   }
 ```
+
+If a function has a single closure argument and it is the final argument, then it is always called using trailing closure syntax, except in the following cases to resolve ambiguity or parsing errors:
+
+1. As described above, labeled closure arguments must be used to disambiguate between two overloads with otherwise identical arguments lists.
+2. Labeled closure arguments must be used in control flow statements where the body of the trailing closure would be parsed as the body of the control flow statement.
+
+✅ **<ins>Good:</ins>** 
+```swift
+Timer.scheduledTimer(timeInterval: 30, repeats: false) { timer in
+  print("Timer done!")
+}
+
+if let firstActive = list.first(where: { $0.isActive }) {
+  process(firstActive)
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+Timer.scheduledTimer(timeInterval: 30, repeats: false, block: { timer in
+  print("Timer done!")
+})
+
+// This example fails to compile.
+if let firstActive = list.first { $0.isActive } {
+  process(firstActive)
+}
+```
+
+When a function called with trailing closure syntax takes no other arguments, empty parentheses (`()`) after the function name are never present.
+
+✅ **<ins>Good:</ins>** 
+```swift
+let squares = [1, 2, 3].map { $0 * $0 }
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+let squares = [1, 2, 3].map({ $0 * $0 })
+let squares = [1, 2, 3].map() { $0 * $0 }
+```
+
+### 4.6 Trailing Commas
+
+Trailing commas in array and dictionary literals are required when each element is placed on its own line. Doing so produces cleaner diffs when items are added to those literals later.
+
+✅ **<ins>Good:</ins>** 
+```swift
+let configurationKeys = [
+  "bufferSize",
+  "compression",
+  "encoding",                                    // GOOD.
+]
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+let configurationKeys = [
+  "bufferSize",
+  "compression",
+  "encoding"                                     // AVOID.
+]
+```
+
+### 4.7 Numeric Literals
+
+It is recommended but not required that long numeric literals (decimal, hexadecimal, octal, and binary) use the underscore (`_`) separator to group digits for readability when the literal has numeric value or when there exists a domain-specific grouping.
+
+Recommended groupings are three digits for decimal (thousands separators), four digits for hexadecimal, four or eight digits for binary literals, or value-specific field boundaries when they exist (such as three digits for octal file permissions).
+
+Do not group digits if the literal is an opaque identifier that does not have a meaningful numeric value.
+
+### 4.8 Attributes
+
+Parameterized attributes (such as `@availability(...)` or `@objc(...)`) are each written on their own line immediately before the declaration to which they apply, are lexicographically ordered, and are indented at the same level as the declaration.
+
+✅ **<ins>Good:</ins>**
+```swift
+@available(iOS 9.0, *)
+public func coolNewFeature() {
+  // ...
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+@available(iOS 9.0, *) public func coolNewFeature() {
+  // ...
+}
+```
+
+Attributes without parameters (for example, `@objc` without arguments, `@IBOutlet`, `@Observable` or `@NSManaged`) are lexicographically ordered and may be placed on the same line as the declaration if and only if they would fit on that line without requiring the line to be rewrapped. If placing an attribute on the same line as the declaration would require a declaration to be wrapped that previously did not need to be wrapped, then the attribute is placed on its own line.
+
+✅ **<ins>Good:</ins>**
+```swift
+public class MyViewController: UIViewController {
+  @IBOutlet private var tableView: UITableView!
+}
+
+@Observable class MySecondViewController {
+    // ...
+}
+```
+
+# 5. Naming
+### 5.1 Apple’s API Style Guidelines
+
+Apple’s official [Swift naming and API design guidelines](https://www.swift.org/documentation/api-design-guidelines/) hosted on swift.org are considered part of this style guide and are followed as if they were repeated here in their entirety.
+
+### 5.2 ScribbleLabApp Naming Conventions
+
+At ScribbleLabApp, consistent naming conventions enhance code readability and maintainability. Here are the guidelines for naming various components:
+
+#### 5.2.1 Global Services
+
+Global services within the application use the prefix "`SL-`". For example, `SLAuthService` or `SLUserService`.
+
+#### 5.2.2 Packages and Frameworks
+
+Each package and framework has its own prefixes for classes and types. In AvatarKit, prefixes include "`AA`", "`AF`", "`AV`". In ScribbleCompose, the prefix is "`SC`". In CoreServices, prefixes include "`SCS`", and so on. These prefixes help in identifying the source of the code and avoid conflicts with other packages or frameworks.
+
+#### 5.2.3 Models
+
+Models should have the word "`Model`" in ***both*** the **filename** and the **declaration**. For example, the filename could be `UserProfileModel.swift` and the declaration struct `UserProfileModel`.
+
+#### 5.2.4 Services
+
+Services should include the word "`Service`" in their name to clearly indicate their purpose. For example, `AuthenticationService`.
+
+#### 5.2.5 Controllers
+
+Controllers should include the word "`Controller`" in their name to indicate their role in managing views and application logic. For example, `ProfileViewController`.
+
+#### 5.2.6 Delegates
+
+Delegates should include the word "`Delegate`" in their name to indicate their role in handling callbacks or events. For example, `DataLoaderDelegate`.
+
+By adhering to these naming conventions, ScribbleLabApp maintains consistency across its codebase, making it easier for developers to understand and navigate the code.
+
+### 5.2 Naming Conventions Are Not Access Control
+
+Restricted access control (`internal`, `fileprivate`, or `private`) is preferred for the purposes of hiding information from clients, rather than naming conventions.
+
+Naming conventions (such as prefixing a leading underscore) are only used in rare situations when a declaration must be given higher visibility than is otherwise desired in order to work around language limitations—for example, a type that has a method that is only intended to be called by other parts of a library implementation that crosses module boundaries and must therefore be declared public.
+
+### 5.3 Identifiers
+
+In general, identifiers contain only 7-bit ASCII characters. Unicode identifiers are allowed if they have a clear and legitimate meaning in the problem domain of the code base (for example, Greek letters that represent mathematical concepts) and are well understood by the team who owns the code.
+
+✅ **<ins>Good:</ins>**
+```swift
+let smile = "😊"
+let deltaX = newX - previousX
+let Δx = newX - previousX
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+let 😊 = "😊"
+```
+
+### 5.4 Initializers
+
+For clarity, initializer arguments that correspond directly to a stored property have the same name as the property. Explicit `self.` is used during assignment to disambiguate them.
+
+✅ **<ins>Good:</ins>**
+```swift
+public struct Person {
+  public let name: String
+  public let phoneNumber: String
+
+  // GOOD.
+  public init(name: String, phoneNumber: String) {
+    self.name = name
+    self.phoneNumber = phoneNumber
+  }
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+public struct Person {
+  public let name: String
+  public let phoneNumber: String
+
+  // AVOID.
+  public init(name otherName: String, phoneNumber otherPhoneNumber: String) {
+    name = otherName
+    phoneNumber = otherPhoneNumber
+  }
+}
+```
+
+### 5.5 Static and Class Properties
+
+Static and class properties that return instances of the declaring type are not suffixed with the name of the type.
+
+✅ **<ins>Good:</ins>**
+```swift
+public class UIColor {
+  public class var red: UIColor {                // GOOD.
+    // ...
+  }
+}
+
+public class URLSession {
+  public class var shared: URLSession {          // GOOD.
+    // ...
+  }
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+public class UIColor {
+  public class var redColor: UIColor {           // AVOID.
+    // ...
+  }
+}
+
+public class URLSession {
+  public class var sharedSession: URLSession {   // AVOID.
+    // ...
+  }
+}
+```
+
+When a static or class property evaluates to a singleton instance of the declaring type, the names `shared` and `default` are commonly used. This style guide does not require specific names for these; the author should choose a name that makes sense for the type.
+
+### 5.6 Global Constants
+
+Like other variables, global constants are `lowerCamelCase`. Hungarian notation, such as a leading `g` or `k`, is not used.
+
+✅ **<ins>Good:</ins>**
+```swift
+let secondsPerMinute = 60
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+let SecondsPerMinute = 60
+let kSecondsPerMinute = 60
+let gSecondsPerMinute = 60
+let SECONDS_PER_MINUTE = 60
+```
+
+### 5.7 Delegate Methods
+
+Methods on delegate protocols and delegate-like protocols (such as data sources) are named using the linguistic syntax described below, which is inspired by Cocoa’s protocols.
+
+> The term “delegate’s source object” refers to the object that invokes methods on the delegate. For example, a `UITableView` is the source object that invokes methods on the `UITableViewDelegate` that is set as the view’s `delegate` property.
+
+All methods take the delegate’s source object as the first argument.
+
+For methods that take the delegate’s source object as their only argument:
+
+- If the method returns `Void` (such as those used to notify the delegate that an event has occurred), then the method’s base name is the **delegate’s source type** followed by an **indicative verb phrase** describing the event. The argument is **unlabeled**.
+
+    ✅ **<ins>Good:</ins>**
+    ```swift
+    func scrollViewDidBeginScrolling(_ scrollView: UIScrollView) {}
+    ```
+
+- If the method returns `Bool` (such as those that make an assertion about the delegate’s source object itself), then the method’s name is the **delegate’s source type** followed by an **indicative or conditional verb phrase** describing the assertion. The argument is **unlabeled**.
+
+    ```swift
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {}
+    ```
