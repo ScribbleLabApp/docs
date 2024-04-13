@@ -752,4 +752,147 @@ Beyond where required by the language or other style rules, and apart from liter
 
     2. The ampersand (`&`) in a protocol composition type.
 
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        func sayHappyBirthday(to person: NameProviding & AgeProviding) {
+            // ...
+        }
+        ```
 
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        func sayHappyBirthday(to person: NameProviding&AgeProviding) {
+            // ...
+        }
+        ```
+
+    3. The operator symbol in a function declaring/implementing that operator.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        static func == (lhs: MyType, rhs: MyType) -> Bool {
+            // ...
+        }
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        static func ==(lhs: MyType, rhs: MyType) -> Bool {
+            // ...
+        }
+        ```
+    
+    4. The arrow (`->`) preceding the return type of a function.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        func sum(_ numbers: [Int]) -> Int {
+            // ...
+        }
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        func sum(_ numbers: [Int])->Int {
+            // ...
+        }
+        ```
+
+    5. Exception: There is no space on either side of the dot (`.`) used to reference value and type members.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        let width = view.bounds.width
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        let width = view . bounds . width
+        ```
+
+    6. Exception: There is no space on either side of the `..<` or `...` operators used in range expressions.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        for number in 1...5 {
+            // ...
+        }
+
+        let substring = string[index..<string.endIndex]
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        for number in 1 ... 5 {
+            // ...
+        }
+
+        let substring = string[index ..< string.endIndex]
+        ```
+    
+4. After, but not before, the comma (`,`) in parameter lists and in tuple/array/dictionary literals.
+
+    ✅ **<ins>Good:</ins>**
+    ```swift
+    let numbers = [1, 2, 3]
+    ```
+
+    🚫 **<ins>Bad:</ins>**
+    ```swift
+    let numbers = [1,2,3]
+    let numbers = [1 ,2 ,3]
+    let numbers = [1 , 2 , 3]
+    ```
+    
+5. After, but not before, the colon (`:`) in
+
+    1. Superclass/protocol conformance lists and generic constraints.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        struct HashTable: Collection {
+            // ...
+        }
+
+        struct AnyEquatable<Wrapped: Equatable>: Equatable {
+            // ...
+        }
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        struct HashTable : Collection {
+            // ...
+        }
+
+        struct AnyEquatable<Wrapped : Equatable> : Equatable {
+            // ...
+        }
+        ```
+    
+    2. Function argument labels and tuple element labels.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        let tuple: (x: Int, y: Int)
+
+        func sum(_ numbers: [Int]) {
+            // ...
+        }
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        let tuple: (x:Int, y:Int)
+        let tuple: (x : Int, y : Int)
+
+        func sum(_ numbers:[Int]) {
+            // ...
+        }
+
+        func sum(_ numbers : [Int]) {
+            // ...
+        }
+        ```
+    
+    3. Variable/property declarations with explicit types.
