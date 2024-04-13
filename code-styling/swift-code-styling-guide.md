@@ -132,7 +132,7 @@ let skinToneType6 = "\u{1F3FF}"
 
 If the umlaut were included in the string literally, it would combine with the preceding quotation mark, impairing readability. Likewise, while most systems may render a standalone skin tone modifier as a block graphic, the example below is still forbidden because it is a modifier that is not modifying a character in the same string.
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 let diaeresis = "̈"
 let skinToneType6 = "🏿"
@@ -162,7 +162,7 @@ let size = "\u{00DC}bergr\u{00F6}\u{00DF}e\n"
 
 The example below is forbidden because it mixes code points outside the 7-bit ASCII range in both literal form and in escaped form.
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 let size = "Übergr\u{00F6}\u{00DF}e\n"
 ```
@@ -344,7 +344,7 @@ func processValue(value: Int?) -> Int? {
 }
 ```
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 // bad function example
 func foo() 
@@ -389,7 +389,7 @@ func printSum(_ a: Int, _ b: Int) {
 }
 ```
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 func printSum(_ a: Int, _ b: Int) {
   let sum = a + b;
@@ -435,7 +435,7 @@ For the purposes of ScribbleLabApp Swift style, many declarations (such as type 
 As an example, consider the following complex function declaration, which needs to be line-wrapped:
 
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 public func index<Elements: Collection, Element>(of element: Element, in collection: Elements) -> Elements.Index? where Elements.Element == Element, Element: Equatable {
   // ...
@@ -479,7 +479,7 @@ where
 }
 ```
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 public func index<Elements: Collection, Element>(
   of element: Element,
@@ -503,7 +503,7 @@ Concrete examples of this are shown in the relevant subsections below.
 
 This line-wrapping style ensures that the different parts of a declaration are quickly and easily identifiable to the reader by using indentation and line breaks, while also preserving the same indentation level for those parts throughout the file. Specifically, it prevents the zig-zag effect that would be present if the arguments are indented based on opening parentheses, as is common in other languages:
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 public func index<Elements: Collection, Element>(of element: Element,  // AVOID.
                                                  in collection: Elements) -> Elements.Index?
@@ -687,7 +687,7 @@ let result = anExpression + thatIsMadeUpOf * aLargeNumber +
     andWeWill - keepMakingItLonger * soThatWeHave / aContrivedExample)
 ```
 
-🚫 **<ins>Bad:</ins>**
+⛔️ **<ins>Bad:</ins>**
 ```swift
 let result = anExpression + thatIsMadeUpOf * aLargeNumber +
     ofTerms / andTherefore % mustBeWrapped + (
@@ -709,7 +709,7 @@ Beyond where required by the language or other style rules, and apart from liter
     }
     ```
 
-    🚫 **<ins>Bad:</ins>**
+    ⛔️ **<ins>Bad:</ins>**
     ```swift
     if(x == 0 && y == 0) || z == 0 {
         // ...
@@ -723,7 +723,7 @@ Beyond where required by the language or other style rules, and apart from liter
     let nonNegativeCubes = numbers.map { $0 * $0 * $0 }.filter { $0 >= 0 }
     ```
 
-    🚫 **<ins>Bad:</ins>**
+    ⛔️ **<ins>Bad:</ins>**
     ```swift
     let nonNegativeCubes = numbers.map { $0 * $0 * $0 } .filter { $0 >= 0 }
     let nonNegativeCubes = numbers.map{$0 * $0 * $0}.filter{$0 >= 0}
@@ -741,7 +741,7 @@ Beyond where required by the language or other style rules, and apart from liter
         }
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         var x=5
 
@@ -759,7 +759,7 @@ Beyond where required by the language or other style rules, and apart from liter
         }
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         func sayHappyBirthday(to person: NameProviding&AgeProviding) {
             // ...
@@ -775,7 +775,7 @@ Beyond where required by the language or other style rules, and apart from liter
         }
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         static func ==(lhs: MyType, rhs: MyType) -> Bool {
             // ...
@@ -791,7 +791,7 @@ Beyond where required by the language or other style rules, and apart from liter
         }
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         func sum(_ numbers: [Int])->Int {
             // ...
@@ -805,7 +805,7 @@ Beyond where required by the language or other style rules, and apart from liter
         let width = view.bounds.width
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         let width = view . bounds . width
         ```
@@ -821,7 +821,7 @@ Beyond where required by the language or other style rules, and apart from liter
         let substring = string[index..<string.endIndex]
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         for number in 1 ... 5 {
             // ...
@@ -837,7 +837,7 @@ Beyond where required by the language or other style rules, and apart from liter
     let numbers = [1, 2, 3]
     ```
 
-    🚫 **<ins>Bad:</ins>**
+    ⛔️ **<ins>Bad:</ins>**
     ```swift
     let numbers = [1,2,3]
     let numbers = [1 ,2 ,3]
@@ -859,7 +859,7 @@ Beyond where required by the language or other style rules, and apart from liter
         }
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         struct HashTable : Collection {
             // ...
@@ -881,7 +881,7 @@ Beyond where required by the language or other style rules, and apart from liter
         }
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         let tuple: (x:Int, y:Int)
         let tuple: (x : Int, y : Int)
@@ -902,7 +902,7 @@ Beyond where required by the language or other style rules, and apart from liter
         let number: Int = 5
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         let number:Int = 5
         let number : Int = 5
@@ -915,7 +915,7 @@ Beyond where required by the language or other style rules, and apart from liter
         var nameAgeMap: [String: Int] = []
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         var nameAgeMap: [String:Int] = []
         var nameAgeMap: [String : Int] = []
@@ -928,7 +928,7 @@ Beyond where required by the language or other style rules, and apart from liter
         let nameAgeMap = ["Ed": 40, "Timmy": 9]
         ```
 
-        🚫 **<ins>Bad:</ins>**
+        ⛔️ **<ins>Bad:</ins>**
         ```swift
         let nameAgeMap = ["Ed":40, "Timmy":9]
         let nameAgeMap = ["Ed" : 40, "Timmy" : 9]
@@ -940,7 +940,7 @@ Beyond where required by the language or other style rules, and apart from liter
     let initialFactor = 2  // Warm up the modulator.
     ```
 
-    🚫 **<ins>Bad:</ins>**
+    ⛔️ **<ins>Bad:</ins>**
     ```swift
     let initialFactor = 2 //    Warm up the modulator.
     ```
@@ -952,7 +952,293 @@ Beyond where required by the language or other style rules, and apart from liter
     let numbers = [1, 2, 3]
     ```
 
-    🚫 **<ins>Bad:</ins>**
+    ⛔️ **<ins>Bad:</ins>**
     ```swift
     let numbers = [ 1, 2, 3 ]
     ```
+
+### 3.7 Horizontal Alignment
+
+> **Terminology note:** Horizontal alignment is the practice of adding a variable number of additional spaces in your code with the goal of making certain tokens appear directly below certain other tokens on previous lines.
+
+Horizontal alignment is forbidden except when writing obviously tabular data where omitting the alignment would be harmful to readability. In other cases (for example, lining up the types of stored property declarations in a `struct` or `class`), horizontal alignment is an invitation for maintenance problems if a new member is introduced that requires every other member to be realigned.
+
+✅ **<ins>Good:</ins>**
+```swift
+struct DataPoint {
+    var value: Int
+    var primaryColor: UIColor
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+struct DataPoint {
+    var value:        Int
+    var primaryColor: UIColor
+}
+```
+
+### 3.8 Vertical Whitespace
+
+A single blank line appears in the following locations:
+
+1. Between consecutive members of a type: properties, initializers, methods, enum cases, and nested types, **except that**:
+    1. A blank line is optional between two consecutive stored properties or two enum cases whose declarations fit entirely on a single line. Such blank lines can be used to *create logical groupings* of these declarations.
+    2. A blank line is optional between two extremely closely related properties that do not otherwise meet the criterion above; for example, a private stored property and a related public computed property.
+2. *Only as needed* between statements to organize code into logical subsections.
+3. *Optionally* before the first member or after the last member of a type (neither is encouraged nor discouraged).
+4. Anywhere explicitly required by other sections of this document.
+
+*Multiple* blank lines are permitted, but never required (nor encouraged). If you do use multiple consecutive blank lines, do so consistently throughout your code base.
+
+### 3.8 Parentheses
+
+Parentheses are not used around the top-most expression that follows an `if`, `guard`, `while`, or `switch` keyword.
+
+✅ **<ins>Good:</ins>**
+```swift
+if x == 0 {
+  print("x is zero")
+}
+
+if (x == 0 || y == 1) && z == 2 {
+  print("...")
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+if (x == 0) {
+  print("x is zero")
+}
+
+if ((x == 0 || y == 1) && z == 2) {
+  print("...")
+}
+```
+
+Optional grouping parentheses are omitted only when the author and the reviewer agree that there is no reasonable chance that the code will be misinterpreted without them, nor that they would have made the code easier to read. It is not reasonable to assume that every reader has the entire Swift operator precedence table memorized.
+
+## 4. Formatting Specific Constructs
+
+### 4.1 Non-Documentation Comments
+
+Non-documentation comments always use the double-slash format (`//`), never the C-style block format (`/* ... */`) except in framework/package file headers.
+
+### 4.2 Properties
+
+Local variables are declared close to the point at which they are first used (within reason) to minimize their scope.
+
+With the exception of tuple destructuring, every `let` or `var` statement (whether a property or a local variable) declares exactly one variable.
+
+✅ **<ins>Good:</ins>** 
+```swift
+var a = 5
+var b = 10
+
+let (quotient, remainder) = divide(100, 9)
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+var a = 5, b = 10
+```
+
+### 4.3 Switch Statements
+
+Case statements are indented at the same level as the switch statement to which they belong; the statements inside the case blocks are then indented +2 spaces from that level.
+
+✅ **<ins>Good:</ins>** 
+```swift
+switch order {
+case .ascending:
+  print("Ascending")
+case .descending:
+  print("Descending")
+case .same:
+  print("Same")
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+switch order {
+  case .ascending:
+    print("Ascending")
+  case .descending:
+    print("Descending")
+  case .same:
+    print("Same")
+}
+```
+```swift
+switch order {
+case .ascending:
+print("Ascending")
+case .descending:
+print("Descending")
+case .same:
+print("Same")
+}
+```
+
+### 4.4 Enum Cases
+
+In general, there is only one `case` per line in an `enum`. The comma-delimited form may be used only when none of the cases have associated values or raw values, all cases fit on a single line, and the cases do not need further documentation because their meanings are obvious from their names.
+
+✅ **<ins>Good:</ins>** 
+```swift
+public enum Token {
+  case comma
+  case semicolon
+  case identifier
+}
+
+public enum Token {
+  case comma, semicolon, identifier
+}
+
+public enum Token {
+  case comma
+  case semicolon
+  case identifier(String)
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+public enum Token {
+  case comma, semicolon, identifier(String)
+}
+```
+
+When all cases of an `enum` must be `indirect`, the `enum` itself is declared `indirect` and the keyword is omitted on the individual cases.
+
+✅ **<ins>Good:</ins>** 
+```swift
+public indirect enum DependencyGraphNode {
+  case userDefined(dependencies: [DependencyGraphNode])
+  case synthesized(dependencies: [DependencyGraphNode])
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+public enum DependencyGraphNode {
+  indirect case userDefined(dependencies: [DependencyGraphNode])
+  indirect case synthesized(dependencies: [DependencyGraphNode])
+}
+```
+
+When an enum case does not have associated values, empty parentheses are never present.
+
+✅ **<ins>Good:</ins>** 
+```swift
+public enum BinaryTree<Element> {
+  indirect case node(element: Element, left: BinaryTree, right: BinaryTree)
+  case empty  // GOOD.
+}
+```
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+public enum BinaryTree<Element> {
+  indirect case node(element: Element, left: BinaryTree, right: BinaryTree)
+  case empty()  // AVOID.
+}
+```
+
+The cases of an enum must follow a logical ordering that the author could explain if asked. If there is no obviously logical ordering, use a lexicographical ordering based on the cases’ names.
+
+In the following example, the cases are arranged in numerical order based on the underlying HTTP status code and blank lines are used to separate groups.
+
+✅ **<ins>Good:</ins>** 
+```swift
+public enum HTTPStatus: Int {
+  case ok = 200
+
+  case badRequest = 400
+  case notAuthorized = 401
+  case paymentRequired = 402
+  case forbidden = 403
+  case notFound = 404
+
+  case internalServerError = 500
+}
+```
+
+The following version of the same enum is less readable. Although the cases are ordered lexicographically, the meaningful groupings of related values has been lost.
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+public enum HTTPStatus: Int {
+  case badRequest = 400
+  case forbidden = 403
+  case internalServerError = 500
+  case notAuthorized = 401
+  case notFound = 404
+  case ok = 200
+  case paymentRequired = 402
+}
+```
+
+### 4.5 Trailing Closures
+
+Functions should not be overloaded such that two overloads differ only by the name of their trailing closure argument. Doing so prevents using trailing closure syntax—when the label is not present, a call to the function with a trailing closure is ambiguous.
+
+Consider the following example, which prohibits using trailing closure syntax to call `greet`:
+
+⛔️ **<ins>Bad:</ins>**
+```swift
+func greet(enthusiastically nameProvider: () -> String) {
+  print("Hello, \(nameProvider())! It's a pleasure to see you!")
+}
+
+func greet(apathetically nameProvider: () -> String) {
+  print("Oh, look. It's \(nameProvider()).")
+}
+
+greet { "John" }  // error: ambiguous use of 'greet'
+```
+
+This example is fixed by differentiating some part of the function name other than the closure argument—in this case, the base name:
+
+✅ **<ins>Good:</ins>** 
+```swift
+func greetEnthusiastically(_ nameProvider: () -> String) {
+  print("Hello, \(nameProvider())! It's a pleasure to see you!")
+}
+
+func greetApathetically(_ nameProvider: () -> String) {
+  print("Oh, look. It's \(nameProvider()).")
+}
+
+greetEnthusiastically { "John" }
+greetApathetically { "not John" }
+```
+
+If a function call has multiple closure arguments, then none are called using trailing closure syntax; all are labeled and nested inside the argument list’s parentheses.
+
+✅ **<ins>Good:</ins>** 
+```swift
+UIView.animate(
+  withDuration: 0.5,
+  animations: {
+    // ...
+  },
+  completion: { finished in
+    // ...
+  })
+```
+
+⚠️ **<ins>Not Desired:</ins>**
+```swift
+UIView.animate(
+  withDuration: 0.5,
+  animations: {
+    // ...
+  }) { finished in
+    // ...
+  }
+```
