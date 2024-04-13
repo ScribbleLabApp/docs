@@ -896,3 +896,63 @@ Beyond where required by the language or other style rules, and apart from liter
         ```
     
     3. Variable/property declarations with explicit types.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        let number: Int = 5
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        let number:Int = 5
+        let number : Int = 5
+        ```
+    
+    4. Shorthand dictionary type names.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        var nameAgeMap: [String: Int] = []
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        var nameAgeMap: [String:Int] = []
+        var nameAgeMap: [String : Int] = []
+        ```
+
+    5. Dictionary literals.
+
+        ✅ **<ins>Good:</ins>**
+        ```swift
+        let nameAgeMap = ["Ed": 40, "Timmy": 9]
+        ```
+
+        🚫 **<ins>Bad:</ins>**
+        ```swift
+        let nameAgeMap = ["Ed":40, "Timmy":9]
+        let nameAgeMap = ["Ed" : 40, "Timmy" : 9]
+        ```
+6. At least two spaces before and exactly one space after the double slash (`//`) that begins an end-of-line comment.
+
+    ✅ **<ins>Good:</ins>**
+    ```swift
+    let initialFactor = 2  // Warm up the modulator.
+    ```
+
+    🚫 **<ins>Bad:</ins>**
+    ```swift
+    let initialFactor = 2 //    Warm up the modulator.
+    ```
+
+7. Outside, but not inside, the brackets of an array or dictionary literals and the parentheses of a tuple literal.
+
+    ✅ **<ins>Good:</ins>**
+    ```swift
+    let numbers = [1, 2, 3]
+    ```
+
+    🚫 **<ins>Bad:</ins>**
+    ```swift
+    let numbers = [ 1, 2, 3 ]
+    ```
