@@ -1507,6 +1507,14 @@ For methods that take the delegate’s source object as their only argument:
 
 - If the method returns `Bool` (such as those that make an assertion about the delegate’s source object itself), then the method’s name is the **delegate’s source type** followed by an **indicative or conditional verb phrase** describing the assertion. The argument is **unlabeled**.
 
+    ✅ **<ins>Good:</ins>**
     ```swift
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {}
     ```
+
+    <div style="background-color: rgb(240, 255, 240);">
+    
+    ```swift
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {}
+    ```
+    </div>
