@@ -22,7 +22,7 @@ export default {
     link: 'https://discord.gg/Y5mUJbNC8h'
   },
   docsRepositoryBase:
-    'https://github.com/ScribbleLabApp/docs',
+    'https://github.com/ScribbleLabApp/docs/tree/main',
   editLink: {
     content: 'Edit this page on GitHub'
   },
