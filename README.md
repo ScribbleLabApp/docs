@@ -3,6 +3,8 @@
 
 Welcome to the official community product documentation for ScribbleLabApp. This README provides comprehensive details on using ScribbleLabApp, contributing to the project, and engaging with the developer community. Whether you’re a new user or a contributor, you’ll find everything you need to get started.
 
+![An illustration showing successful students](.github/assets/people.png)
+
 ### Table of Contents
 
 1.	[Introduction](#introduction)
