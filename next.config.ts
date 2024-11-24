@@ -5,10 +5,10 @@ const withNextra = nextra({
   themeConfig: './theme.config.tsx',
   latex: true,
   search: {
-    codeblocks: false
-  }
+    codeblocks: true
+  },
 })
 
 export default withNextra({
-  reactStrictMode: true
+  reactStrictMode: true,
 })

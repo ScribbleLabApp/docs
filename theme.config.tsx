@@ -1,10 +1,23 @@
 import { useConfig } from 'nextra-theme-docs'
+import { Footer } from '@/components/ui/footer'
 
 /* eslint sort-keys: error */
 /**
  * @type {import('nextra-theme-docs').DocsThemeConfig}
  */
 export default {
+  logo: <strong>ScribbleLabApp</strong>,
+  i18n: [
+    { locale: 'en-us', name: 'English' },
+    { locale: 'zh-cn', name: '中文' },
+    { locale: 'de-de', name: 'Deutsch' },
+    { locale: 'it-it', name: 'Italiano' },
+  ],
+  banner: {
+    content: '🚀 Join Us in Improving the Docs: Your Contributions Can Make a Difference!',
+    key: 'Product Docs',
+    dismissible: true
+  },
   chat: {
     link: 'https://discord.gg/Y5mUJbNC8h'
   },
@@ -15,6 +28,9 @@ export default {
   },
   project: {
     link: 'https://github.com/shuding/nextra'
+  },
+  footer: {
+    component: <Footer />,
   },
   faviconGlyph: '✦',
   head: function useHead() {
