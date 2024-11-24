@@ -1,0 +1,212 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+
+# Adding new Documentation
+
+This guide walks you through the steps required to add new pages or topics to your Nextra documentation site. 
+Whether you're a maintainer or a contributor, following these steps will help you expand the documentation structure efficiently.
+
+### Prerequisites
+
+1. **Node.js and npm:** Ensure that Node.js (>= v22.0.0) and npm are installed on your system.
+2. **Nextra Installed:** Confirm that your site uses Nextra. If not, install it using:
+
+    ```bash npm2yarn
+    npm i nextra nextra-theme-docs
+    ```
+
+3. **Git Access:** Make sure you have write access to the repository or the ability to fork and submit pull requests.
+
+## Adding a New Documentation Page
+
+### Locate the Documentation Directory
+
+Nextra organizes pages in the pages directory at the root of your project. This directory mirrors the site's URL structure. For instance:
+
+```md
+pages/
+  ├── index.md                // Home page
+  ├── guide/
+  │    ├── installation.md    // /guide/installation
+  │    └── setup.md           // /guide/setup
+  └── api/
+       └── reference.md       // /api/reference
+```
+
+### Create a Markdown React File
+
+To add a new page:
+
+1. Locate the appropriate subdirectory within the pages/folder. If the topic does't fit an existing structure, create a new subdirectory with a meaningful name, e.g., `pages/new-topic/`.
+2. Inside the directory, create a `.mdx` file with a descriptive filename, e.g., `introduction.mdx`.
+3. Write your documentation using MDX, which combines Markdown and React for flexible content creation. Follow this structure for a consistent style:
+
+```mdx filename="introduction.mdx"
+# Introduction to New Topic
+
+Welcome to the documentation for **New Topic**. This page provides a detailed overview of the topic, its purpose, and how it can be utilized effectively.
+
+## What is New Topic?
+
+Explain the core concept of the topic. Use clear and concise language. Include definitions, background information, and any relevant context.
+
+For example:
+> "New Topic" is a feature/module/tool designed to simplify workflows by providing XYZ capabilities.
+
+## Key Features of New Topic
+
+Highlight the main features, benefits, or applications:
+- **Feature 1:** Brief description of the feature.
+- **Feature 2:** Highlight its value.
+- **Feature 3:** How it helps users.
+
+## How to Use New Topic
+
+Provide step-by-step guidance or examples on how to use the feature/module/tool:
+
+### Example 1: Basic Usage
+```javascript
+// Example of how to implement or use the feature
+import { NewTopic } from 'your-library';
+
+const demo = NewTopic({ key: 'value' });
+console.log(demo);
+```
+
+#### Content Writing Tips
+
+- **Use Clear Headings:** Organize the document with clear and descriptive headings (e.g., `#`, `##`, `###`).
+- **Highlight Code:** Use fenced code blocks (` ``` `) with appropriate syntax highlighting (`javascript`, `bash`, etc.).
+- **Add Visual Aids:** When applicable, include diagrams, images, or tables.
+- **Reference Internal Links:** Use relative paths to link other pages in the documentation (e.g., `../guide/setup`).
+- **Maintain Consistency:** Follow the project's tone and style guide to ensure uniformity across the documentation.
+
+### Adding Page Sidebar Metadata
+
+In Nextra, sidebar metadata helps organize your pages and topics in the navigation menu. This is managed using `_meta.ts` files 
+within directories or directly via `theme.config.ts` (not recommended).
+
+#### Adding Metadata to `_meta.ts`
+
+To ensure your new page appears in the sidebar:
+
+<Steps>
+#### Locate the `_meta.ts` File
+
+Each folder containing pages should include a `_meta.ts` file. For example:
+
+```md
+pages/
+  ├── guide/
+  │    ├── _meta.ts
+  │    ├── installation.mdx
+  │    └── setup.mdx
+```
+
+#### Update the `_meta.ts` File
+
+Add an entry for your new page. The structure of `_meta.ts` is a simple JavaScript object where the key is 
+the page's filename (excluding the `.mdx` extension), and the value is its display name.
+
+```mdx filename="_meta.ts"
+// pages/guide/_meta.ts
+export default {
+    installation: 'Installation Guide',
+    setup: 'Setup Instructions',
+    newtopic: 'New Topic Documentation', // Add your new page here
+};
+```
+
+#### Include Nested Topics (if applicable)
+
+If your new topic is part of a subdirectory, link its `_meta.ts` file within the parent directory's `_meta.ts` file.
+
+```mdx filename="_meta.ts"
+export default {
+    index: 'Home',
+    guide: {
+        _meta: import('./guide/_meta'),     // Reference the guide metadata
+        'new-section': 'New Section Title', // Optional additional pages
+    },
+    api: 'API Reference',
+};
+```
+</Steps>
+
+### Adding a New Topic (Parent Directory)
+
+If your new topic doesn't fit within existing sections, create a new parent directory to house it.
+
+<Steps>
+#### Create the Directory
+
+For instance, to add a *“Tutorials”* section:
+
+```bash
+mkdir -p pages/tutorials
+```
+
+#### Add the `_meta.ts` File
+
+Create a `_meta.ts` file to define the sidebar metadata for this section.
+
+```mdx filename="_meta.ts"
+export default {
+    'getting-started': 'Getting Started',
+    'advanced-tutorials': 'Advanced Tutorials',
+};
+```
+
+#### Include the Parent Directory in the Main Sidebar
+
+Update the root `_meta.ts` file to include the new section.
+
+```mdx filename="_meta.ts"
+export default {
+    index: 'Home',
+    guide: {
+        _meta: import('./guide/_meta'),
+    },
+    tutorials: {
+        _meta: import('./tutorials/_meta'), // Add reference to the new section
+    },
+    api: 'API Reference',
+};
+```
+
+</Steps>
+
+
+### Testing Your Changes
+
+After updating or adding new pages and metadata, test your changes locally to ensure they appear as expected.
+
+<Steps>
+#### Run Your Development Server
+
+Start the Nextra development server to preview the changes:
+
+```bash
+npm run dev
+```
+
+#### Verify Sidebar Structure
+
+1. Navigate to the new page and check its placement in the sidebar.
+1. Ensure that nested sections appear correctly.
+
+#### Validate Navigation
+
+1. Click on links in the sidebar to ensure they point to the correct pages.
+2. Confirm that all headings, links, and assets within the page render properly.
+
+#### Run Linting
+
+Use linting tools to catch formatting or syntax errors:
+
+```bash
+npm run lint
+npm run format
+```
+
+</Steps>
