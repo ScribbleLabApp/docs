@@ -75,7 +75,7 @@ For a deeper dive into how to utilize ScribbleLabApp, refer to the User Guide fo
 
 ## Contributing
 
-We welcome contributions from the community! Whether you’re fixing bugs, suggesting features, or improving documentation, your involvement helps make ScribbleLabApp even better. To contribute, please follow our [Contribution Guide](#contributing).
+We welcome contributions from the community! Whether you’re fixing bugs, suggesting features, or improving documentation, your involvement helps make ScribbleLabApp even better. To contribute, please follow our [Contribution Guide](CONTRIBUTING.md).
 
 
 ## Community

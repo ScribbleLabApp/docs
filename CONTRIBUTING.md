@@ -119,11 +119,7 @@ Let’s collaborate and create something inspiring for the ScribbleLab community
 We use [Nextra](https://nextra.vercel.app/) and [Next.js](https://nextjs.org/) for our documentation. If you want to add new documentation or improve existing ones, follow these steps:
 
 1. Check our [developer site]() for non-documented topics and guidelines.
-2. Create or update markdown files in the 
-
-pages
-
- directory.
+2. Create or update markdown files in the `src/pages` directory.
 3. Ensure your documentation follows the structure and style of existing documents.
 4. Submit a pull request with your changes.
 
