@@ -27,7 +27,7 @@ export default {
     content: 'Edit this page on GitHub'
   },
   project: {
-    link: 'https://github.com/shuding/nextra'
+    link: 'https://github.com/ScribbleLabApp/docs'
   },
   footer: {
     component: <Footer />,
