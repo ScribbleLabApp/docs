@@ -1,5 +1,5 @@
-import { useConfig } from 'nextra-theme-docs'
-import { Footer } from '@/components/ui/footer'
+import { useConfig } from 'nextra-theme-docs';
+import { Footer } from '@/components/ui/footer';
 
 /* eslint sort-keys: error */
 /**
@@ -14,31 +14,32 @@ export default {
     { locale: 'it-it', name: 'Italiano' },
   ],
   banner: {
-    content: '🚀 Join Us in Improving the Docs: Your Contributions Can Make a Difference!',
+    content:
+      '🚀 Join Us in Improving the Docs: Your Contributions Can Make a Difference!',
     key: 'Product Docs',
-    dismissible: true
+    dismissible: true,
   },
   chat: {
-    link: 'https://discord.gg/Y5mUJbNC8h'
+    link: 'https://discord.gg/Y5mUJbNC8h',
   },
-  docsRepositoryBase:
-    'https://github.com/ScribbleLabApp/docs/tree/main',
+  docsRepositoryBase: 'https://github.com/ScribbleLabApp/docs/tree/main',
   editLink: {
-    content: 'Edit this page on GitHub'
+    content: 'Edit this page on GitHub',
   },
   project: {
-    link: 'https://github.com/ScribbleLabApp/docs'
+    link: 'https://github.com/ScribbleLabApp/docs',
   },
   footer: {
     component: <Footer />,
   },
   faviconGlyph: '✦',
   head: function useHead() {
-    const config = useConfig()
-    const title = `${config.title} – ScribbleLabApp Docs`
+    const config = useConfig();
+    const title = `${config.title} – ScribbleLabApp Docs`;
     const description =
-      config.frontMatter.description || 'Innovate your school life forever with our powerful tools - build by students for students'
-    const image = config.frontMatter.image || ''
+      config.frontMatter.description ||
+      'Innovate your school life forever with our powerful tools - build by students for students';
+    const image = config.frontMatter.image || '';
     return (
       <>
         <title>{title}</title>
@@ -84,6 +85,6 @@ export default {
           href="/favicon-16x16.png"
         />
       </>
-    )
-  }
-}
+    );
+  },
+};

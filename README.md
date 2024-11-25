@@ -1,4 +1,3 @@
-
 # ScribbleLabApp Community Product Documentation
 
 Welcome to the official community product documentation for ScribbleLabApp. This README provides comprehensive details on using ScribbleLabApp, contributing to the project, and engaging with the developer community. Whether you’re a new user or a contributor, you’ll find everything you need to get started.
@@ -7,14 +6,14 @@ Welcome to the official community product documentation for ScribbleLabApp. This
 
 ### Table of Contents
 
-1.	[Introduction](#introduction)
-2.	[Features](#features)
-3.	[Getting Started](#getting-started)
-4.	[Usage](#usage)
-5.	[Contributing](#contributing)
-6.	[Community](#community)
-7.	[License](#license)
-8.	[Contact](#contact)
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Getting Started](#getting-started)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
+6. [Community](#community)
+7. [License](#license)
+8. [Contact](#contact)
 
 ## Introduction
 
@@ -43,27 +42,27 @@ To get started with ScribbleLabApp, follow these steps:
 
 1. Clone the repository to your local machine:
 
-    ```bash
-    git clone https://github.com/ScribbleLabApp/docs.git
-    ```
+   ```bash
+   git clone https://github.com/ScribbleLabApp/docs.git
+   ```
 
-2.	Navigate into the project directory:
+2. Navigate into the project directory:
 
-    ```bash
-    cd docs
-    ```
+   ```bash
+   cd docs
+   ```
 
-3.	Install the required dependencies:
+3. Install the required dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-4.	Start the development server:
+4. Start the development server:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 After completing these steps, you’ll be able to run and access the ScribbleLabApp Community Product Documentation on your local machine.
 
@@ -77,10 +76,10 @@ For a deeper dive into how to utilize ScribbleLabApp, refer to the User Guide fo
 
 We welcome contributions from the community! Whether you’re fixing bugs, suggesting features, or improving documentation, your involvement helps make ScribbleLabApp even better. To contribute, please follow our [Contribution Guide](CONTRIBUTING.md).
 
-
 ## Community
 
 Join the ScribbleLabApp community to stay up to date, ask questions, and share your feedback:
+
 - **GitHub Issues:** Report bugs, request features, and discuss changes on our GitHub Issues page.
 - **Twitter:** Follow us on Twitter for the latest updates and announcements.
 - **Instagram:** Follow us on Instagram for behind-the-scenes content.

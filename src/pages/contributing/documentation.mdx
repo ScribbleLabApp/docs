@@ -1,9 +1,9 @@
-import { Callout } from 'nextra/components'
-import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components';
+import { Steps } from 'nextra/components';
 
 # Adding new Documentation
 
-This guide walks you through the steps required to add new pages or topics to your Nextra documentation site. 
+This guide walks you through the steps required to add new pages or topics to your Nextra documentation site.
 Whether you're a maintainer or a contributor, following these steps will help you expand the documentation structure efficiently.
 
 ### Prerequisites
@@ -11,9 +11,9 @@ Whether you're a maintainer or a contributor, following these steps will help yo
 1. **Node.js and npm:** Ensure that Node.js (>= v22.0.0) and npm are installed on your system.
 2. **Nextra Installed:** Confirm that your site uses Nextra. If not, install it using:
 
-    ```bash npm2yarn
-    npm i nextra nextra-theme-docs
-    ```
+   ```bash npm2yarn copy
+   npm i nextra nextra-theme-docs
+   ```
 
 3. **Git Access:** Make sure you have write access to the repository or the ability to fork and submit pull requests.
 
@@ -25,12 +25,12 @@ Nextra organizes pages in the pages directory at the root of your project. This 
 
 ```md
 pages/
-  ├── index.md                // Home page
-  ├── guide/
-  │    ├── installation.md    // /guide/installation
-  │    └── setup.md           // /guide/setup
-  └── api/
-       └── reference.md       // /api/reference
+├── index.md               // Home page
+├── guide/
+│ ├── installation.md      // /guide/installation
+│ └── setup.md             // /guide/setup
+└── api/
+└── reference.md           // /api/reference
 ```
 
 ### Create a Markdown React File
@@ -41,7 +41,7 @@ To add a new page:
 2. Inside the directory, create a `.mdx` file with a descriptive filename, e.g., `introduction.mdx`.
 3. Write your documentation using MDX, which combines Markdown and React for flexible content creation. Follow this structure for a consistent style:
 
-```mdx filename="introduction.mdx"
+````mdx filename="introduction.mdx"
 # Introduction to New Topic
 
 Welcome to the documentation for **New Topic**. This page provides a detailed overview of the topic, its purpose, and how it can be utilized effectively.
@@ -51,11 +51,13 @@ Welcome to the documentation for **New Topic**. This page provides a detailed ov
 Explain the core concept of the topic. Use clear and concise language. Include definitions, background information, and any relevant context.
 
 For example:
+
 > "New Topic" is a feature/module/tool designed to simplify workflows by providing XYZ capabilities.
 
 ## Key Features of New Topic
 
 Highlight the main features, benefits, or applications:
+
 - **Feature 1:** Brief description of the feature.
 - **Feature 2:** Highlight its value.
 - **Feature 3:** How it helps users.
@@ -65,6 +67,7 @@ Highlight the main features, benefits, or applications:
 Provide step-by-step guidance or examples on how to use the feature/module/tool:
 
 ### Example 1: Basic Usage
+
 ```javascript
 // Example of how to implement or use the feature
 import { NewTopic } from 'your-library';
@@ -72,6 +75,7 @@ import { NewTopic } from 'your-library';
 const demo = NewTopic({ key: 'value' });
 console.log(demo);
 ```
+````
 
 #### Content Writing Tips
 
@@ -83,7 +87,7 @@ console.log(demo);
 
 ### Adding Page Sidebar Metadata
 
-In Nextra, sidebar metadata helps organize your pages and topics in the navigation menu. This is managed using `_meta.ts` files 
+In Nextra, sidebar metadata helps organize your pages and topics in the navigation menu. This is managed using `_meta.ts` files
 within directories or directly via `theme.config.ts` (not recommended).
 
 #### Adding Metadata to `_meta.ts`
@@ -97,23 +101,22 @@ Each folder containing pages should include a `_meta.ts` file. For example:
 
 ```md
 pages/
-  ├── guide/
-  │    ├── _meta.ts
-  │    ├── installation.mdx
-  │    └── setup.mdx
+├── guide/
+│ ├── \_meta.ts
+│ ├── installation.mdx
+│ └── setup.mdx
 ```
 
 #### Update the `_meta.ts` File
 
-Add an entry for your new page. The structure of `_meta.ts` is a simple JavaScript object where the key is 
+Add an entry for your new page. The structure of `_meta.ts` is a simple JavaScript object where the key is
 the page's filename (excluding the `.mdx` extension), and the value is its display name.
 
-```mdx filename="_meta.ts"
-// pages/guide/_meta.ts
+```mdx filename="pages/guide/_meta.ts" {4}
 export default {
-    installation: 'Installation Guide',
-    setup: 'Setup Instructions',
-    newtopic: 'New Topic Documentation', // Add your new page here
+  installation: 'Installation Guide',
+  setup: 'Setup Instructions',
+  newtopic: 'New Topic Documentation',
 };
 ```
 
@@ -121,16 +124,16 @@ export default {
 
 If your new topic is part of a subdirectory, link its `_meta.ts` file within the parent directory's `_meta.ts` file.
 
-```mdx filename="_meta.ts"
+```mdx filename="pages/_meta.ts" {3-5}
 export default {
-    index: 'Home',
-    guide: {
-        _meta: import('./guide/_meta'),     // Reference the guide metadata
-        'new-section': 'New Section Title', // Optional additional pages
-    },
-    api: 'API Reference',
+  index: 'Home',
+  guide: {
+    'new-section': 'New Section Title',
+  },
+  api: 'API Reference',
 };
 ```
+
 </Steps>
 
 ### Adding a New Topic (Parent Directory)
@@ -140,7 +143,7 @@ If your new topic doesn't fit within existing sections, create a new parent dire
 <Steps>
 #### Create the Directory
 
-For instance, to add a *“Tutorials”* section:
+For instance, to add a _“Tutorials”_ section:
 
 ```bash
 mkdir -p pages/tutorials
@@ -150,10 +153,10 @@ mkdir -p pages/tutorials
 
 Create a `_meta.ts` file to define the sidebar metadata for this section.
 
-```mdx filename="_meta.ts"
+```mdx filename="pages/tutorial/_meta.ts"
 export default {
-    'getting-started': 'Getting Started',
-    'advanced-tutorials': 'Advanced Tutorials',
+  'getting-started': 'Getting Started',
+  'advanced-tutorials': 'Advanced Tutorials',
 };
 ```
 
@@ -161,21 +164,20 @@ export default {
 
 Update the root `_meta.ts` file to include the new section.
 
-```mdx filename="_meta.ts"
+```mdx filename="pages/_meta.ts" {6-8}
 export default {
-    index: 'Home',
-    guide: {
-        _meta: import('./guide/_meta'),
-    },
-    tutorials: {
-        _meta: import('./tutorials/_meta'), // Add reference to the new section
-    },
-    api: 'API Reference',
+  index: 'Home',
+  guide: {
+    _meta: import('./guide/_meta'),
+  },
+  tutorials: {
+    _meta: import('./tutorials/_meta'),
+  },
+  api: 'API Reference',
 };
 ```
 
 </Steps>
-
 
 ### Testing Your Changes
 
@@ -186,7 +188,7 @@ After updating or adding new pages and metadata, test your changes locally to en
 
 Start the Nextra development server to preview the changes:
 
-```bash
+```bash copy
 npm run dev
 ```
 
@@ -204,7 +206,7 @@ npm run dev
 
 Use linting tools to catch formatting or syntax errors:
 
-```bash
+```bash copy
 npm run lint
 npm run format
 ```
@@ -214,15 +216,16 @@ npm run format
 
     Formatting requires Prettier to be installed. If you don't have it, run:
 
-    ```bash npm2yarn
+    ```bash npm2yarn copy
     npm install --save-dev --save-exact prettier
     ```
 
     To see if Prettier is installed locally, run:
 
-    ```bash
+    ```bash copy
     npx prettier --version
     ```
+
 </Callout>
 
 </Steps>

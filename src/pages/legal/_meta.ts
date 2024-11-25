@@ -1,4 +1,4 @@
 export default {
-    legal: 'Legal',
-    license: 'License',
-}
+  legal: 'Legal',
+  license: 'License',
+};

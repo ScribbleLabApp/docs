@@ -1,4 +1,4 @@
 export default {
-    community: 'Community',
-    support: 'ScribbleLab Support'
-}
+  community: 'Community',
+  support: 'ScribbleLab Support',
+};

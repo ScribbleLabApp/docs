@@ -1,5 +1,5 @@
 export default {
-    overview: 'Overview',
-    installation: 'Installation',
-    quickstart: 'Quickstart',
-}
+  overview: 'Overview',
+  installation: 'Installation',
+  quickstart: 'Quickstart',
+};

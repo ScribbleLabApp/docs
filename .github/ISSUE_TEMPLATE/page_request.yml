@@ -1,7 +1,7 @@
 name: ✨ Page Request
 description: Suggest an idea for further documentation pages or claim a page to write about.
-title: "[preq]: {title}"
-labels: "enhancement"
+title: '[preq]: {title}'
+labels: 'enhancement'
 
 body:
   - type: textarea

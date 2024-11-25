@@ -9,15 +9,15 @@ This guide outlines the expectations and process for contributing. Following the
 
 ### Table Of Contents
 
-1.	[Code of Conduct](#code-of-conduct)
-2.	[How to Ask Questions](#how-to-ask-questions)
-3.	[Submitting Issues](#submitting-issues)
-4.	[Feature Suggestions](#feature-suggestions)
-5.	[Submitting Pull Requests](#submitting-pull-requests)
-6.	[Coding Style](#coding-style)
-7.	[Writing Commit Messages](#writing-commit-messages)
-8.	[Code Review Process](#code-review-process)
-9.	[Acknowledgments](#acknowledgments)
+1. [Code of Conduct](#code-of-conduct)
+2. [How to Ask Questions](#how-to-ask-questions)
+3. [Submitting Issues](#submitting-issues)
+4. [Feature Suggestions](#feature-suggestions)
+5. [Submitting Pull Requests](#submitting-pull-requests)
+6. [Coding Style](#coding-style)
+7. [Writing Commit Messages](#writing-commit-messages)
+8. [Code Review Process](#code-review-process)
+9. [Acknowledgments](#acknowledgments)
 10. [Adding Documentation](#adding-documentation)
 
 ## Code of Conduct
@@ -27,6 +27,7 @@ At ScribbleLab, we strive to create a welcoming, inclusive, and respectful commu
 ## How to Ask Questions
 
 Before opening an issue, check our Support Guide.
+
 - Questions about the app or troubleshooting your setup should be addressed in the Discussions tab.
 - Issues should focus on bugs, enhancements, or specific feature requests (see below).
 
@@ -48,13 +49,13 @@ If you discover a security vulnerability, please report it privately via our Sec
 Got an idea to make ScribbleLab even better? Fantastic! Submit a feature request by following these steps:
 
 1. Search existing requests to avoid duplicates.
-2.	Use the feature request template to provide:
+2. Use the feature request template to provide:
 
-  - A clear description of the feature and its purpose.
+- A clear description of the feature and its purpose.
 
-  - How it complements existing features.
+- How it complements existing features.
 
-  - Mockups or examples, if applicable.
+- Mockups or examples, if applicable.
 
 While we review all suggestions, not every idea will fit within our project’s scope. We encourage meaningful discussion and contributions to help refine your idea!
 
@@ -62,11 +63,11 @@ While we review all suggestions, not every idea will fit within our project’s 
 
 We love contributions! Follow these guidelines to submit your pull request effectively:
 
-1.	Discuss first: For significant changes, open an issue or start a discussion before submitting code.
-2.	One thing at a time: Keep pull requests focused on a single feature or fix. Smaller, atomic changes are easier to review and integrate.
-3.	Testing matters: Ensure your changes include proper test coverage.
-4.	Documentation required: Update code comments and relevant documentation to reflect your changes.
-5.	Follow the style: Maintain consistency with the existing coding style (see below).
+1. Discuss first: For significant changes, open an issue or start a discussion before submitting code.
+2. One thing at a time: Keep pull requests focused on a single feature or fix. Smaller, atomic changes are easier to review and integrate.
+3. Testing matters: Ensure your changes include proper test coverage.
+4. Documentation required: Update code comments and relevant documentation to reflect your changes.
+5. Follow the style: Maintain consistency with the existing coding style (see below).
 
 > [!Note]
 > All contributions are licensed under ScribbleLab’s project license.
@@ -85,7 +86,7 @@ Here’s the preferred format:
 ```md
 (kind): Clear, concise summary of the change
 
-Provide additional context if necessary. Explain the *why* behind your changes, not just the *what*. Reference related issues when applicable.
+Provide additional context if necessary. Explain the _why_ behind your changes, not just the _what_. Reference related issues when applicable.
 
 Resolves: #issue_number
 ```
@@ -103,6 +104,7 @@ Resolves: #42
 ## Code Review Process
 
 Code reviews are a cornerstone of maintaining quality.
+
 - Be constructive: Review code, not the contributor. Offer actionable feedback and explain your reasoning.
 - Timely responses: Address review comments promptly to keep the process efficient.
 

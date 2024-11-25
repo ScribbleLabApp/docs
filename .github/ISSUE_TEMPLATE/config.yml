@@ -3,6 +3,6 @@ contact_links:
   - name: ScribbleLab Comunity
     url: https://discord.gg/Y5mUJbNC8h
     about: Connect with our developers and other community members
-  - name: ScribbleLabApp Support
-    url: 
-    about: Request a ticket for support
+  - name: Frequently Asked Questions (FAQ)
+    url: https://github.com/ScribbleLabApp/docs/tree/main
+    about: Find answers to common questions

@@ -1,40 +1,40 @@
 import { NotFoundPage } from 'nextra-theme-docs';
 import Link from 'next/link';
-import { Callout } from 'nextra/components'
+import { Callout } from 'nextra/components';
+import { Cards } from 'nextra/components';
+import { FaHouseChimney, FaBookBookmark, FaBug } from 'react-icons/fa6';
+import { HiWrenchScrewdriver } from 'react-icons/hi2';
 
 # 404: Page Not Found
 
 <Callout emoji="⚠️">
-Oops! It seems you've wandered off the map. The page you're looking for might have been moved, renamed, or doesn't exist.
-But don't worry, we've got you covered! Here are some helpful links to get back on track:
+  Oops! It seems you've wandered off the map. The page you're looking for might
+  have been moved, renamed, or doesn't exist. But don't worry, we've got you
+  covered! Here are some helpful links to get back on track:
 </Callout>
 
-<div className="flex flex-wrap gap-4 mt-6">
-  <Link href="/" passHref>
-    <button className="px-6 py-2 text-white rounded-lg shadow-md border border-white">
-      🏠 Go to Homepage
-    </button>
-  </Link>
-  <Link href="/docs" passHref>
-    <button className="px-6 py-2 text-white rounded-lg shadow-md border border-white">
-      📖 Browse Documentation
-    </button>
-  </Link>
-  <Link href="/support" passHref>
-    <button className="px-6 py-2 text-white rounded-lg shadow-md border border-white">
-      🛠️ Visit Support Center
-    </button>
-  </Link>
-  <Link href="https://github.com/your-repo/issues" passHref>
-    <button
-      className="px-6 py-2 text-white rounded-lg shadow-md border border-white"
-      onClick={() => window.open('https://github.com/your-repo/issues', '_blank')}
-    >
-      🐞 Report an Issue
-    </button>
-  </Link>
+<div className="flex flex-wrap gap-4 mt-6 mb-6">
+  <Cards className="flex justify-center gap-4 max-w-full">
+    <Cards.Card icon={<FaHouseChimney />} title="Go to Homepage" href="/" />
+    <Cards.Card
+      icon={<FaBookBookmark />}
+      title="Browse Documentation"
+      href="/"
+    />
+    <Cards.Card
+      icon={<HiWrenchScrewdriver />}
+      title="Visit Support Center"
+      href="/"
+    />
+    <Cards.Card
+      icon={<HiWrenchScrewdriver />}
+      title="Report an Issue"
+      href="https://github.com/ScribbleLabApp/docs/issues/new"
+    />
+  </Cards>
 </div>
 
-— The ScribbleLabApp Team 💡
-
-<NotFoundPage />
+<div className="flex justify-center gap-4 max-w-full">
+  — <strong>The ScribbleLabApp Team 💡</strong>
+  <NotFoundPage />
+</div>

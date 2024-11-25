@@ -6,16 +6,18 @@ export default {
   community: 'Community & Support',
   news: 'Changelog & Release Notes',
   troubleshooting: 'Troubleshooting & FAQ',
-  contributing: "Contributing",
+  contributing: 'Contributing',
   security: 'Security',
   legal: 'Legal & License',
   404: {
     type: 'page',
     theme: {
       timestamp: false,
-      typesetting: 'article'
-    }
+      typesetting: 'article',
+    },
   },
-}
+};
 
-{/* Community & Support */}
+{
+  /* Community & Support */
+}

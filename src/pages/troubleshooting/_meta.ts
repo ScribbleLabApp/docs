@@ -1,4 +1,4 @@
 export default {
-    faq: 'FAQ',
-    troubleshooting: 'Troubleshooting Guides',
-}
+  faq: 'FAQ',
+  troubleshooting: 'Troubleshooting Guides',
+};
