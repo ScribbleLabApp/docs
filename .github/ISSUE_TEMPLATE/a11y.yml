@@ -1,5 +1,5 @@
 name: 🌎 [i18n] Translation Issue
-description: 
+description: Report a translation issue.
 title: "[i18n]: {Title}"
 labels:
   - "scope: i18n"
