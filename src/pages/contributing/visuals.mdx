@@ -1,0 +1,408 @@
+import { Callout } from 'nextra/components';
+import { Steps } from 'nextra/components';
+import { Table, Td, Th, Tr } from 'nextra/components';
+
+# Adding Visuals to Your Documentation
+
+This guide will walk you through the process of adding visuals such as images, graphics, math equations, and charts to your
+documentation pages in ScribbleLabApp's Nextra-based site. Visuals help improve clarity, engagement, and understanding for
+users and contributors.
+
+## Adding Images
+
+To provide stunning graphics we use a content delivery network (short CDN) like Cloudinary for image hosting to reduce
+computation expenses and ensures efficient delivery. This section explains how contributors can submit image files and
+how to use Cloudinary-hosted images in the documentation.
+
+### Submitting Images for Upload
+
+Contributors cannot directly upload images to the CDN. Instead, follow these steps to submit your image files:
+
+<Steps>
+    #### Prepare Your Image
+
+    Compress your image using tools like TinyPNG, ImageOptim, or equivalent tools.
+    - **Photographs:** Use JPEG format with the quality slider adjusted to balance quality and size.
+    - **Illustrations/Logos:** Use PNG or WebP format. For PNG, opt for an 8-bit palette to reduce file size.
+
+    Secondarily, use descriptive, kebab-case filenames to simplify identification. For instance:
+
+    <Table>
+      <thead>
+        <Tr>
+          <Th>✅ Desired</Th>
+          <Th>❌ Avoid</Th>
+        </Tr>
+      </thead>
+      <tbody>
+        <Tr>
+          <Td>`feature-overview-scribblelab.png`</Td>
+          <Td>`image1_final_VERSION3.png`</Td>
+        </Tr>
+      </tbody>
+    </Table>
+
+    <Callout type="info" emoji="ℹ️">
+        We only accept images that are smaller than 5MB and in the following formats: JPEG, PNG, or WebP.
+    </Callout>
+
+    #### Submit Your Image
+
+    Provide the image file to the project maintainers or admins via a pull request to our [Asset repository](https://github.com/ScribbleLabApp/assets).
+    Include the following details with your submission:
+
+    - **Proposed Filename:** The name of the image file as it should appear in the CDN.
+    - **Intended Use:** A brief description of the context or purpose of the image.
+    - **Documentation Page and Section:** Specify where the image will be used in the documentation.
+
+    Here's an example of a well-documented image submission:
+
+    ```md filename="pull-request-template.md"
+    ## Overview
+    This pull-request adds a new image to the community documentation.
+
+    ### Image Metadata
+    **Filename:** feature-overview-scribblelab.png
+    **Intended Use:** Visual representation of the ScribbleLab feature overview.
+    **Page:** /docs/features
+    **Section:** "Overview of Core Features"
+    ```
+
+    <Callout type="warning" emoji="⚠️">
+    Incomplete submissions may delay the approval process. Our contributors may also reject images that do not meet the quality standards.
+    </Callout>
+
+    #### Await Approval
+
+    Once submitted, project maintainers will review your image. If approved, it will be uploaded to Cloudinary, and you will receive the Cloudinary ID to reference in your documentation.
+
+</Steps>
+
+### Using Cloudinary-Hosted Images in Documentation
+
+To streamline the integration of Cloudinary-hosted images into your documentation, we provide a custom React component, `<Cimg>`.
+This component ensures consistency, ease of use, and adherence to project design standards.
+
+#### `<Cimg>` Component API
+
+The `<Cimg>` component accepts the following props:
+
+<Table>
+  <thead>
+    <Tr>
+      <Th>Prop</Th>
+      <Th>Type</Th>
+      <Th>Description</Th>
+    </Tr>
+  </thead>
+  <tbody>
+    <Tr>
+      <Td>`id`</Td>
+      <Td>String</Td>
+      <Td>**Required.** The unique identifier of the image on Cloudinary.</Td>
+    </Tr>
+    <Tr>
+      <Td>`alt`</Td>
+      <Td>String</Td>
+      <Td>**Required.** Alternative text for accessibility (a11y) and SEO.</Td>
+    </Tr>
+    <Tr>
+      <Td>`className`</Td>
+      <Td>String</Td>
+      <Td>**Optional.** Custom CSS classes for additional styling.</Td>
+    </Tr>
+  </tbody>
+</Table>
+
+#### Usage of `<Cimg>`
+
+```tsx copy
+<Cimg
+  id="feature-overview-scribblelab"
+  alt="An overview of ScribbleLab's core features"
+  className="rounded-lg shadow-md"
+/>
+```
+
+This code snippet:
+
+- Displays the image with the ID `feature-overview-scribblelab`.
+- Provides the alt text for accessibility and SEO.
+- Applies additional CSS classes (`rounded-lg`, `shadow-md`) to customize styling.
+
+<Callout emoji="🚧">
+    **Topic needs some work**
+
+    This topic is missing some information. You can be the first to contribute!
+
+    **How to Contribute?**
+    Head over to our <strong>[GitHub Repository](https://github.com/ScribbleLabApp/docs)</strong> to find contribution guidelines, open issues, and ideas that need your help.
+    Whether you're a developer, designer, or user with feedback, **every contribution counts**!
+
+</Callout>
+
+## Adding Math Equations (LaTeX)
+
+Mathematics often requires precise formatting to make it readable and professional. Nextra, a popular documentation generator for Next.js, supports rendering LaTeX for mathematical expressions. Here’s how to integrate and use LaTeX equations in your project.
+
+### Inline Math
+
+Inline math allows you to embed mathematical expressions directly within your text. This is especially useful for simple formulas.
+To use inline math simply wrap the LaTeX expression in single $ signs.
+
+**Example:**
+
+```mdx copy
+The area of a circle is given by $A = \pi r^2$.
+```
+
+**This renders as:**
+
+The area of a circle is given by $A = \pi r^2$.
+
+### Block Math
+
+Block math is for larger, centered equations, separated from regular text. It is useful for more complex equations or when you want the formula to stand out.
+To use block math, wrap the LaTeX expression in double $$ delimiters.
+
+**Example:**
+
+```mdx copy
+$$
+x = (-b \pm \sqrt{b^2 - 4ac}) / (2a)
+$$
+```
+
+**This renders as:**
+
+$$
+x = (-b \pm \sqrt{b^2 - 4ac}) / (2a)
+$$
+
+### Complex Math with Markdown (KaTeX)
+
+If you want more advanced functionality or customization for mathematical expressions, you can use the KaTeX library for enhanced math rendering. KaTeX is known for being fast and lightweight.
+
+<Steps>
+#### Install KaTeX
+
+To use KaTeX in your Nextra project, you need to install the library. Run the following command in your project directory:
+
+```bash npm2yarn copy
+npm install katex
+```
+
+#### Import KaTeX Styles
+
+In your `pages/_app.tsx`, import KaTeX's stylesheet to ensure proper styling of math equations:
+
+```tsx {1} copy
+import 'katex/dist/katex.min.css';
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
+
+export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.ts')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    }
+  }, []);
+
+  return <Component {...pageProps} />;
+}
+```
+
+#### Use KaTeX in Your MDX Files
+
+Now you can use LaTeX syntax in your MDX files to render math expressions.
+
+**Example:**
+
+```mdx copy
+$$ 
+\int_{a}^{b} \left( \frac{1}{1 + e^{-x^2}} \right) \cdot \sin\left( \frac{\pi x}{2} \right) \, dx 
+$$ 
+```
+
+**This renders as:**
+
+$$ 
+\int_{a}^{b} \left( \frac{1}{1 + e^{-x^2}} \right) \cdot \sin\left( \frac{\pi x}{2} \right) \, dx 
+$$ 
+</Steps>
+
+### Best Practices for Math Rendering
+
+- **Consistency:** Always use a consistent style for mathematical notation. Whether you're using inline or block math, 
+try to keep the formatting uniform.
+- **Performance:** KaTeX renders math quickly and efficiently, making it ideal for use in larger documents with many mathematical equations.
+
+## Adding Charts with Recharts
+
+Charts are a great way to represent data visually. **Recharts** is a highly customizable chart library built specifically for React, 
+offering responsive and interactive charts.
+
+### Installing Recharts
+
+To get started with Recharts, you first need to install it:
+
+```bash npm2yarn copy
+npm install recharts
+```
+
+### Creating a Basic Bar Chart
+
+To create a simple bar chart using Recharts, follow these steps:
+
+<Steps>
+#### Importing Components
+
+```mdx filename="chart-example.mdx" {1} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+```
+
+To start creating stunning charts we need to import the necessary components from the Recharts library.
+
+Each component has a specific role in building the chart:
+- **BarChart:** This is the container that holds all the chart elements like bars, axes, and tooltips.
+- **Bar:** This component defines the actual bars on the chart, representing data values.
+- **XAxis:** Represents the horizontal axis of the chart.
+- **YAxis:** Represents the vertical axis of the chart.
+- **Tooltip:** A component that shows additional data when a user hovers over a bar or chart element.
+- **CartesianGrid:** Adds a grid behind the chart to improve readability and visual appeal.
+
+#### Defining Data Sets
+
+```mdx filename="chart-example.mdx" {3-7} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const data = [
+  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+];
+```
+
+After importing the necessary components, we need to define a data set in form of an array. This data array holds the data that will be displayed in the chart. 
+Each object in the array represents a data point (or bar) and contains key-value pairs for each of the variables you want to plot:
+- **name:** This is the label for the bar on the X-axis.
+- **uv:** Represents the value for the bar, which will be plotted on the Y-axis.
+- **pv and amt:** These are additional data fields you can plot if you add more Bar components (not used in this example).
+
+#### The Chart Component
+
+```mdx filename="chart-example.mdx" {9,11} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const data = [
+  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+];
+
+<BarChart width={500} height={300} data={data}>
+
+</BarChart>
+```
+
+Now that we have our data set, we can create the actual chart component. The `<BarChart>` component is the parent container 
+for the chart and holds all the other components.
+
+It takes several props:
+- **width:** The width of the chart in pixels (500px here).
+- **height:** The height of the chart in pixels (300px here).
+- **data:** This is the dataset that will be rendered on the chart. We pass the data array here.
+
+```mdx filename="chart-example.mdx" {10} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const data = [
+  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+];
+
+<BarChart width={500} height={300} data={data}>
+  <CartesianGrid strokeDasharray="3 3" />
+</BarChart>
+```
+
+Inside the `<BarChart>` component, we add the `<CartesianGrid>` Component. This adds a grid behind the chart to make it easier to read the values.
+The `strokeDasharray` prop defines the pattern of the grid lines. `"3 3"` makes the grid lines dotted, with each segment of the grid line being 3 pixels long.
+
+```mdx filename="chart-example.mdx" {11-12} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const data = [
+  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+];
+
+<BarChart width={500} height={300} data={data}>
+  <CartesianGrid strokeDasharray="3 3" />
+  <XAxis dataKey="name" />
+  <YAxis />
+</BarChart>
+```
+
+Next, we add the `<XAxis>` and `<YAxis>` components. These represent the horizontal and vertical axes of the chart, respectively.
+
+The `dataKey="name"` on the `<XAxis>` component tells the chart to use the name property from each data point as the labels on the X-axis. So, the X-axis will show Page A, Page B, and Page C.
+The `<XAxis>` component will automatically adjust to the data range based on the values of `uv`.
+
+```mdx filename="chart-example.mdx" {13} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const data = [
+  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+];
+
+<BarChart width={500} height={300} data={data}>
+  <CartesianGrid strokeDasharray="3 3" />
+  <XAxis dataKey="name" />
+  <YAxis />
+  <Tooltip />
+</BarChart>
+```
+
+The `<Tooltip>` component adds a tooltip that displays additional information when you hover over a bar.
+
+```mdx filename="chart-example.mdx" {14} copy
+import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+const data = [
+  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+];
+
+<BarChart width={500} height={300} data={data}>
+  <CartesianGrid strokeDasharray="3 3" />
+  <XAxis dataKey="name" />
+  <YAxis />
+  <Tooltip />
+  <Bar dataKey="uv" fill="#8884d8" />
+</BarChart>
+```
+
+Finally, we add the `<Bar>` component. This component represents the actual bars on the chart. The `dataKey="uv"` prop tells the chart 
+to use the `uv` property from each data point to determine the height of the bars. The `fill="#8884d8"` prop sets the color of the bars to a light blue.
+
+</Steps>
+
+**This compiles to:**
+
+import BarchartExampleOne from '@/components/ui/barchart-example-one';
+
+<BarchartExampleOne />

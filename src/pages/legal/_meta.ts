@@ -1,4 +1,4 @@
 export default {
-  legal: 'Legal',
+  index: 'Legal',
   license: 'License',
 };
