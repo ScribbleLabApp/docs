@@ -12,6 +12,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dompurify": "^3.2.2",
     "katex": "^0.16.11",
     "lucide-react": "^0.460.0",
     "next": "15.0.3",
@@ -25,7 +26,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/dompurify": "^3.2.0",
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -33,5 +33,9 @@
     "prettier": "3.3.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "types": ["dompurify"]
   }
 }
