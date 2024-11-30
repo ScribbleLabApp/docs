@@ -1,5 +1,5 @@
-import { link } from "fs";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { link } from 'fs';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export default {
   index: 'Introduction',

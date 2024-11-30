@@ -63,7 +63,7 @@ export default {
           900: 'var(--deep-teal-900)',
           950: 'var(--deep-teal-950)',
         },
-        'tamarind': {
+        tamarind: {
           50: 'var(--tamarind-50)',
           100: 'var(--tamarind-100)',
           200: 'var(--tamarind-200)',
@@ -76,7 +76,7 @@ export default {
           900: 'var(--tamarind-900)',
           950: 'var(--tamarind-950)',
         },
-        'shark': {
+        shark: {
           50: 'var(--shark-50)',
           100: 'var(--shark-100)',
           200: 'var(--shark-200)',
@@ -89,7 +89,7 @@ export default {
           900: 'var(--shark-900)',
           950: 'var(--shark-950)',
         },
-        'clinker': {
+        clinker: {
           50: 'var(--clinker-50)',
           100: 'var(--clinker-100)',
           200: 'var(--clinker-200)',
@@ -102,7 +102,7 @@ export default {
           900: 'var(--clinker-900)',
           950: 'var(--clinker-950)',
         },
-        'bush': {
+        bush: {
           50: 'var(--bush-50)',
           100: 'var(--bush-100)',
           200: 'var(--bush-200)',
@@ -115,7 +115,7 @@ export default {
           900: 'var(--bush-900)',
           950: 'var(--bush-950)',
         },
-        'revolver': {
+        revolver: {
           50: 'var(--revolver-50)',
           100: 'var(--revolver-100)',
           200: 'var(--revolver-200)',
