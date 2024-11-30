@@ -17,6 +17,11 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "public/service-worker.ts"],
-  "exclude": ["node_modules", "node_modules/@types/dompurify",]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "public/service-worker.ts"
+  ],
+  "exclude": ["node_modules", "node_modules/@types/dompurify"]
 }

@@ -1,6 +1,7 @@
 import { Callout } from 'nextra/components';
 import { Steps } from 'nextra/components';
 import { Table, Td, Th, Tr } from 'nextra/components';
+import Feedback from '@/components/ui/feedback';
 
 # Adding Visuals to Your Documentation
 
@@ -208,7 +209,10 @@ export default function App({ Component, pageProps }: AppProps) {
       navigator.serviceWorker
         .register('/service-worker.ts')
         .then((registration) => {
-          console.log('Service Worker registered with scope:', registration.scope);
+          console.log(
+            'Service Worker registered with scope:',
+            registration.scope
+          );
         })
         .catch((error) => {
           console.error('Service Worker registration failed:', error);
@@ -227,27 +231,28 @@ Now you can use LaTeX syntax in your MDX files to render math expressions.
 **Example:**
 
 ```mdx copy
-$$ 
-\int_{a}^{b} \left( \frac{1}{1 + e^{-x^2}} \right) \cdot \sin\left( \frac{\pi x}{2} \right) \, dx 
-$$ 
+$$
+\int_{a}^{b} \left( \frac{1}{1 + e^{-x^2}} \right) \cdot \sin\left( \frac{\pi x}{2} \right) \, dx
+$$
 ```
 
 **This renders as:**
 
-$$ 
-\int_{a}^{b} \left( \frac{1}{1 + e^{-x^2}} \right) \cdot \sin\left( \frac{\pi x}{2} \right) \, dx 
-$$ 
+$$
+\int_{a}^{b} \left( \frac{1}{1 + e^{-x^2}} \right) \cdot \sin\left( \frac{\pi x}{2} \right) \, dx
+$$
+
 </Steps>
 
 ### Best Practices for Math Rendering
 
-- **Consistency:** Always use a consistent style for mathematical notation. Whether you're using inline or block math, 
-try to keep the formatting uniform.
+- **Consistency:** Always use a consistent style for mathematical notation. Whether you're using inline or block math,
+  try to keep the formatting uniform.
 - **Performance:** KaTeX renders math quickly and efficiently, making it ideal for use in larger documents with many mathematical equations.
 
 ## Adding Charts with Recharts
 
-Charts are a great way to represent data visually. **Recharts** is a highly customizable chart library built specifically for React, 
+Charts are a great way to represent data visually. **Recharts** is a highly customizable chart library built specifically for React,
 offering responsive and interactive charts.
 
 ### Installing Recharts
@@ -267,11 +272,14 @@ To create a simple bar chart using Recharts, follow these steps:
 
 ```mdx filename="chart-example.mdx" {1} copy
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+
+;
 ```
 
 To start creating stunning charts we need to import the necessary components from the Recharts library.
 
 Each component has a specific role in building the chart:
+
 - **BarChart:** This is the container that holds all the chart elements like bars, axes, and tooltips.
 - **Bar:** This component defines the actual bars on the chart, representing data values.
 - **XAxis:** Represents the horizontal axis of the chart.
@@ -285,14 +293,15 @@ Each component has a specific role in building the chart:
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+{ name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+{ name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
 ];
 ```
 
-After importing the necessary components, we need to define a data set in form of an array. This data array holds the data that will be displayed in the chart. 
+After importing the necessary components, we need to define a data set in form of an array. This data array holds the data that will be displayed in the chart.
 Each object in the array represents a data point (or bar) and contains key-value pairs for each of the variables you want to plot:
+
 - **name:** This is the label for the bar on the X-axis.
 - **uv:** Represents the value for the bar, which will be plotted on the Y-axis.
 - **pv and amt:** These are additional data fields you can plot if you add more Bar components (not used in this example).
@@ -303,9 +312,9 @@ Each object in the array represents a data point (or bar) and contains key-value
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+{ name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+{ name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
 ];
 
 <BarChart width={500} height={300} data={data}>
@@ -313,10 +322,11 @@ const data = [
 </BarChart>
 ```
 
-Now that we have our data set, we can create the actual chart component. The `<BarChart>` component is the parent container 
+Now that we have our data set, we can create the actual chart component. The `<BarChart>` component is the parent container
 for the chart and holds all the other components.
 
 It takes several props:
+
 - **width:** The width of the chart in pixels (500px here).
 - **height:** The height of the chart in pixels (300px here).
 - **data:** This is the dataset that will be rendered on the chart. We pass the data array here.
@@ -325,9 +335,9 @@ It takes several props:
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+{ name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+{ name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
 ];
 
 <BarChart width={500} height={300} data={data}>
@@ -342,9 +352,9 @@ The `strokeDasharray` prop defines the pattern of the grid lines. `"3 3"` makes 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+{ name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+{ name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
 ];
 
 <BarChart width={500} height={300} data={data}>
@@ -363,9 +373,9 @@ The `<XAxis>` component will automatically adjust to the data range based on the
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+{ name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+{ name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
 ];
 
 <BarChart width={500} height={300} data={data}>
@@ -382,9 +392,9 @@ The `<Tooltip>` component adds a tooltip that displays additional information wh
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 
 const data = [
-  { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
-  { name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
-  { name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
+{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },
+{ name: 'Page B', uv: 300, pv: 1398, amt: 2210 },
+{ name: 'Page C', uv: 200, pv: 9800, amt: 2290 },
 ];
 
 <BarChart width={500} height={300} data={data}>
@@ -396,7 +406,7 @@ const data = [
 </BarChart>
 ```
 
-Finally, we add the `<Bar>` component. This component represents the actual bars on the chart. The `dataKey="uv"` prop tells the chart 
+Finally, we add the `<Bar>` component. This component represents the actual bars on the chart. The `dataKey="uv"` prop tells the chart
 to use the `uv` property from each data point to determine the height of the bars. The `fill="#8884d8"` prop sets the color of the bars to a light blue.
 
 </Steps>
@@ -406,3 +416,5 @@ to use the `uv` property from each data point to determine the height of the bar
 import BarchartExampleOne from '@/components/ui/barchart-example-one';
 
 <BarchartExampleOne />
+
+<Feedback />
