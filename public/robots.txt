@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://scribblelabapp-docs.pages.dev/
+
+# Sitemaps
+Sitemap: https://scribblelabapp-docs.pages.dev/sitemap.xml
